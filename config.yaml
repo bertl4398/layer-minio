@@ -1,0 +1,5 @@
+options:
+  port:
+    type: int
+    default: 9000
+    description: "The port of the MinIO server"
