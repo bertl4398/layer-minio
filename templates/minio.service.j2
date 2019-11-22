@@ -3,8 +3,8 @@ Description=MinIO service
 After=network.target
 
 [Service]
-Environment="MINIO_ACCESS_KEY=admin"
-Environment="MINIO_SECRET_KEY=123456789"
+Environment="MINIO_ACCESS_KEY={{ access_key }}"
+Environment="MINIO_SECRET_KEY={{ secret_key }}"
 
 ExecStart=/usr/local/bin/minio server {{ data_dir }}
 Restart = on-failure

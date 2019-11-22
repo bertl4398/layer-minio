@@ -9,8 +9,12 @@ import os
 import stat
 
 
-def port():
-    return int(config('port'))
+def access_key():
+    return str(config('access-key'))
+
+
+def secret_key():
+    return str(config('secret-key'))
 
 
 @when_not('minio.installed')
@@ -37,6 +41,8 @@ def start_minio():
            target="/lib/systemd/system/minio.service",
            perms=0o775,
            context={
+               "access_key": access_key(),
+               "secret_key": secret_key(),
                "data_dir": "/data",
            })
 
